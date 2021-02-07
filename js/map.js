@@ -13,12 +13,19 @@ var map = L.map('map', {zoomControl: true, maxZoom: 20}).setView(saintCouat, 6);
 //	0.	MapBox Topo
 var mpO = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/outdoors-v10/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiZHVuY2FuZ3JhaGFtIiwiYSI6IlJJcWdFczQifQ.9HUpTV1es8IjaGAf_s64VQ', {
     maxZoom: 21
-});
+}).addTo(map);
 
 //	1.	MapBox Outdoors (Topo)
 var mapBox = L.tileLayer('https://api.mapbox.com/v4/matt.f714d988/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiZHVuY2FuZ3JhaGFtIiwiYSI6IlJJcWdFczQifQ.9HUpTV1es8IjaGAf_s64VQ', {
     maxZoom: 21
-}).addTo(map);
+});
+//	2. IGN France Topo Scan express classique WMTS
+var ignApiKey = "uysc5plwe5d5vezt4dvze1l5";
+//var scanWmtsUrl = "http://wxs.ign.fr/" + ignApiKey + "/wmts?LAYER=GEOGRAPHICALGRIDSYSTEMS.MAPS&EXCEPTIONS=text/xml&FORMAT=image/jpeg&SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetTile&STYLE=normal&TILEMATRIXSET=PM&&TILEMATRIX={z}&TILECOL={x}&TILEROW={y}";
+var scanWmtsUrl = "https://wxs.ign.fr/pratique/geoportail/wmts?LAYER=GEOGRAPHICALGRIDSYSTEMS.MAPS&EXCEPTIONS=text/xml&FORMAT=image/jpeg&SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetTile&STYLE=normal&TILEMATRIXSET=PM&&TILEMATRIX={z}&TILECOL={x}&TILEROW={y}";
+var basemap1 = L.tileLayer(scanWmtsUrl, {
+    attribution: ''
+});
 
 
 //	4.	Google Street
@@ -407,11 +414,15 @@ var overLayers = [
 var baseLayers = [
     {
         name: 'Mapbox Outdoors',
-        layer: mapBox
+        layer: mpO
     },
     {
         name: 'Street',
         layer: googleLayer
+    },
+    {
+        name: 'IGN France',
+        layer: basemap1
     }
 
 ];
