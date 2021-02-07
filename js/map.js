@@ -16,7 +16,7 @@ var mpO = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/outdoors-v10/tile
 });
 
 //	1.	MapBox Outdoors (Topo)
-var mapBox = L.tileLayer('http://{s}.tiles.mapbox.com/v4/matt.f714d988/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiZHVuY2FuZ3JhaGFtIiwiYSI6IlJJcWdFczQifQ.9HUpTV1es8IjaGAf_s64VQ', {
+var mapBox = L.tileLayer('https://{s}.tiles.mapbox.com/v4/matt.f714d988/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiZHVuY2FuZ3JhaGFtIiwiYSI6IlJJcWdFczQifQ.9HUpTV1es8IjaGAf_s64VQ', {
     maxZoom: 21
 }).addTo(map);
 
