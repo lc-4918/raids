@@ -419,10 +419,6 @@ var baseLayers = [
     {
         name: 'Street',
         layer: googleLayer
-    },
-    {
-        name: 'IGN France',
-        layer: basemap1
     }
 
 ];
